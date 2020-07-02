@@ -1,10 +1,5 @@
 package utils;
 
-
-import model.Customer;
-import model.Order;
-import model.OrderDetail;
-import model.Product;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
