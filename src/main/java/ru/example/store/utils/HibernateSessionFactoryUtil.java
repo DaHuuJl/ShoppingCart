@@ -1,4 +1,4 @@
-package utils;
+package ru.example.store.utils;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -13,10 +13,10 @@ public class HibernateSessionFactoryUtil {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration().configure();
-                configuration.addAnnotatedClass(model.Customer.class);
-                configuration.addAnnotatedClass(model.Order.class);
-                configuration.addAnnotatedClass(model.OrderDetail.class);
-                configuration.addAnnotatedClass(model.Product.class);
+                configuration.addAnnotatedClass(ru.example.store.model.Customer.class);
+                configuration.addAnnotatedClass(ru.example.store.model.Order.class);
+                configuration.addAnnotatedClass(ru.example.store.model.OrderDetail.class);
+                configuration.addAnnotatedClass(ru.example.store.model.Product.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
             } catch (Exception e) {

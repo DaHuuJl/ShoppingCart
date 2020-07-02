@@ -1,4 +1,4 @@
-package model;
+package ru.example.store.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,17 +7,17 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "product")
+@Table(name = "orderDetail")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String name;
+    private long order_id;
+    private long product_id;
     private double price;
-    private String description;
-    private boolean in_stock;
-}
+    private long quantity;
 
+}

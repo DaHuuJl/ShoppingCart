@@ -1,4 +1,4 @@
-package dao;
+package ru.example.store.dao;
 
 public interface DAO<Entity, Key> {
     void create(Entity entity);

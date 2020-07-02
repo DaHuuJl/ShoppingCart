@@ -1,56 +1,55 @@
-package dao;
+package ru.example.store.dao;
 
-
-import model.Customer;
-import model.OrderDetail;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import ru.example.store.model.Order;
+import org.hibernate.SessionFactory;
 import org.jetbrains.annotations.NotNull;
-import utils.HibernateSessionFactoryUtil;
+
+import ru.example.store.utils.HibernateSessionFactoryUtil;
 
 /**
  * Author : Danyil Smirnov.
  * Created : 02/07/2020.
  */
-public class OrderDetailDAO implements DAO<OrderDetail, String> {
+public class OrderDAO implements DAO<Order, String>{
     /**
      * Connection factory to database.
      */
     private final SessionFactory factory;
 
-    public OrderDetailDAO(@NotNull final SessionFactory factory) {
+    public OrderDAO(@NotNull final SessionFactory factory) {
         this.factory = factory;
     }
 
     @Override
-    public void create(OrderDetail orderDetail) {
+    public void create(Order order) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(orderDetail);
+        session.save(order);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public OrderDetail read(String s) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(OrderDetail.class, s);
+    public Order read(String s) {
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Order.class, s);
     }
 
     @Override
-    public void update(OrderDetail orderDetail) {
+    public void update(Order order) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(orderDetail);
+        session.update(order);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public void delete(OrderDetail orderDetail) {
+    public void delete(Order order) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(orderDetail);
+        session.delete(order);
         transaction.commit();
         session.close();
     }

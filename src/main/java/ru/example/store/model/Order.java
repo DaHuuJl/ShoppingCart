@@ -1,7 +1,7 @@
-package model;
+package ru.example.store.model;
 
-import enams.Order_status;
-import enams.Payment_method;
+import ru.example.store.enams.Order_status;
+import ru.example.store.enams.Payment_method;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
