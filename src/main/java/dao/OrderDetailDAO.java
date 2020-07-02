@@ -1,15 +1,18 @@
 package dao;
 
-import lombok.*;
+
+import model.Customer;
 import model.OrderDetail;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.jetbrains.annotations.NotNull;
+import utils.HibernateSessionFactoryUtil;
 
 /**
  * Author : Danyil Smirnov.
  * Created : 02/07/2020.
  */
-@Data
 public class OrderDetailDAO implements DAO<OrderDetail, String> {
     /**
      * Connection factory to database.
@@ -22,21 +25,33 @@ public class OrderDetailDAO implements DAO<OrderDetail, String> {
 
     @Override
     public void create(OrderDetail orderDetail) {
-
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(orderDetail);
+        transaction.commit();
+        session.close();
     }
 
     @Override
     public OrderDetail read(String s) {
-        return null;
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(OrderDetail.class, s);
     }
 
     @Override
     public void update(OrderDetail orderDetail) {
-
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(orderDetail);
+        transaction.commit();
+        session.close();
     }
 
     @Override
     public void delete(OrderDetail orderDetail) {
-
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(orderDetail);
+        transaction.commit();
+        session.close();
     }
 }

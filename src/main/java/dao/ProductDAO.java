@@ -1,14 +1,22 @@
 package dao;
 
-import lombok.*;
 import model.Product;
+import org.hibernate.SessionFactory;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Author : Danyil Smirnov.
  * Created : 02/07/2020.
  */
-@Data
 public class ProductDAO implements DAO<Product, String> {
+    /**
+     * Connection factory to database.
+     */
+    private final SessionFactory factory;
+
+    public ProductDAO(@NotNull final SessionFactory factory) {
+        this.factory = factory;
+    }
 
     @Override
     public void create(Product product) {
