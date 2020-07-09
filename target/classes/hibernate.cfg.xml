@@ -5,7 +5,9 @@
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="connection.username">postgres</property>
         <property name="connection.password">0000</property>
-        <property name="dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="show_sql">true</property>
+        <property name="hibernate.postgressql.auto">crate</property>
+
     </session-factory>
 </hibernate-configuration>

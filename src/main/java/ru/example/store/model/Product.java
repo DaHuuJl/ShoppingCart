@@ -6,6 +6,10 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ * Author : Danyil Smirnov.
+ * Created : 02/07/2020.
+ */
 @Entity
 @Table (name = "product")
 @Data

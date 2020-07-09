@@ -1,26 +1,18 @@
 package ru.example.store.dao;
 
-
+import lombok.*;
+import ru.example.store.dao.interfase.DAO;
 import ru.example.store.model.OrderDetail;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.jetbrains.annotations.NotNull;
 import ru.example.store.utils.HibernateSessionFactoryUtil;
 
 /**
  * Author : Danyil Smirnov.
  * Created : 02/07/2020.
  */
-public class OrderDetailDAO implements DAO<OrderDetail, String> {
-    /**
-     * Connection factory to database.
-     */
-    private final SessionFactory factory;
-
-    public OrderDetailDAO(@NotNull final SessionFactory factory) {
-        this.factory = factory;
-    }
+@NoArgsConstructor
+public class OrderDetailDAO implements DAO<OrderDetail, Long> {
 
     @Override
     public void create(OrderDetail orderDetail) {
@@ -32,8 +24,8 @@ public class OrderDetailDAO implements DAO<OrderDetail, String> {
     }
 
     @Override
-    public OrderDetail read(String s) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(OrderDetail.class, s);
+    public OrderDetail read(Long aLong) {
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(OrderDetail.class, aLong);
     }
 
     @Override
